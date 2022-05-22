@@ -1,0 +1,6 @@
+framework module Pods_MHDatabaseIOS {
+  umbrella header "Pods-MHDatabaseIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
