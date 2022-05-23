@@ -8,25 +8,56 @@
 import UIKit
 
 class DempViewController: UIViewController {
-
+    
+    @IBOutlet weak var categoryLabal: UILabel!
+    @IBOutlet weak var codeNameLabel: UILabel!
+    
+    struct phylums: Codable {
+        let id: Int
+        let category: String
+        let codename: String
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        super.viewDidLoad()
-
-        title = "About Me"
-        view.backgroundColor = .systemPink
+        //view.backgroundColor = .system
+        view.backgroundColor = .systemBackground
+        
+        let dataURL = URL(string: "http://127.0.0.1:5000/app/phylums/4")!
+        
+        loadJSON(inURL: dataURL)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tap(_ sender: Any) {
     }
-    */
+    
+    func loadJSON(inURL: URL) {
+
+        URLSession.shared.dataTask(with: inURL) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            
+            guard let data = data else { return }
+            do {
+                //Decode data
+                let JSONData = try JSONDecoder().decode(phylums.self, from: data)
+                
+                //Get back to the main queue
+                DispatchQueue.main.async {
+                    self.categoryLabal.text = JSONData.category
+                    print("category is: "+JSONData.category)
+                    
+                    
+                    self.codeNameLabel.text = JSONData.codename
+                    print("codename is: "+JSONData.codename)
+
+                }
+                
+            } catch let jsonError {print(jsonError)}
+
+            }.resume()
+    }
 
 }
