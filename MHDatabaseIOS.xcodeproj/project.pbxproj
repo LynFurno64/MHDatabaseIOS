@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		59DE839051F060A02DF9F8B7 /* Pods_MHDatabaseIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69024ABBC7E2208B2E931E08 /* Pods_MHDatabaseIOS.framework */; };
 		7A1ECBB32839CDC7008BA6C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ECBB22839CDC7008BA6C3 /* SceneDelegate.swift */; };
-		7A1ECBB52839CDC7008BA6C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ECBB42839CDC7008BA6C3 /* ViewController.swift */; };
 		7A1ECBBA2839CDC8008BA6C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1ECBB92839CDC8008BA6C3 /* Assets.xcassets */; };
 		7A1ECBBD2839CDC8008BA6C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1ECBBB2839CDC8008BA6C3 /* LaunchScreen.storyboard */; };
+		7A24B93B283E99C600B5FC44 /* MonsterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B93A283E99C600B5FC44 /* MonsterData.swift */; };
+		7A24B93D283EE21E00B5FC44 /* MonsterDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */; };
+		7A24B93F283EFC2500B5FC44 /* MonsterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */; };
+		7A24B941283F391500B5FC44 /* MonTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A24B940283F391500B5FC44 /* MonTable.storyboard */; };
+		7A24B943283F4C5600B5FC44 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */; };
 		7A416092283AC97200E3B65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ECBB02839CDC7008BA6C3 /* AppDelegate.swift */; };
 		7A41609A283B040600E3B65D /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A416098283B040600E3B65D /* GameTableViewCell.swift */; };
 		7A41609B283B040600E3B65D /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A416099283B040600E3B65D /* GameTableViewCell.xib */; };
@@ -34,10 +38,14 @@
 		7A1ECBAD2839CDC7008BA6C3 /* MHDatabaseIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHDatabaseIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1ECBB02839CDC7008BA6C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A1ECBB22839CDC7008BA6C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A1ECBB42839CDC7008BA6C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A1ECBB92839CDC8008BA6C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A1ECBBC2839CDC8008BA6C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A1ECBBE2839CDC8008BA6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A24B93A283E99C600B5FC44 /* MonsterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterData.swift; sourceTree = "<group>"; };
+		7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataManger.swift; sourceTree = "<group>"; };
+		7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTableViewController.swift; sourceTree = "<group>"; };
+		7A24B940283F391500B5FC44 /* MonTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonTable.storyboard; sourceTree = "<group>"; };
+		7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		7A416098283B040600E3B65D /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		7A416099283B040600E3B65D /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 		7A41609F283B3D7000E3B65D /* mh4U.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mh4U.png; sourceTree = "<group>"; };
@@ -101,11 +109,12 @@
 				7A8ECCD62839E34000CF0BBC /* ViewControllers */,
 				7A1ECBB02839CDC7008BA6C3 /* AppDelegate.swift */,
 				7A1ECBB22839CDC7008BA6C3 /* SceneDelegate.swift */,
-				7A1ECBB42839CDC7008BA6C3 /* ViewController.swift */,
 				7A8ECCD92839E77100CF0BBC /* StoryBoards */,
 				7A1ECBB92839CDC8008BA6C3 /* Assets.xcassets */,
 				7A1ECBBB2839CDC8008BA6C3 /* LaunchScreen.storyboard */,
 				7A1ECBBE2839CDC8008BA6C3 /* Info.plist */,
+				7A24B93A283E99C600B5FC44 /* MonsterData.swift */,
+				7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */,
 			);
 			path = MHDatabaseIOS;
 			sourceTree = "<group>";
@@ -135,6 +144,8 @@
 				7A59CBF1283AA5A800BDACAD /* TypesViewController.swift */,
 				7A59CBF3283AA5E000BDACAD /* BookMarksViewController.swift */,
 				7A59CBFD283ABB7A00BDACAD /* HomeViewController.swift */,
+				7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */,
+				7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 				7A59CBF5283AA65F00BDACAD /* BookMarks.storyboard */,
 				7A59CBF7283AA66F00BDACAD /* Game.storyboard */,
 				7A59CBF9283AA68200BDACAD /* Types.storyboard */,
+				7A24B940283F391500B5FC44 /* MonTable.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -223,6 +235,7 @@
 				7A59CBF8283AA66F00BDACAD /* Game.storyboard in Resources */,
 				7A1ECBBD2839CDC8008BA6C3 /* LaunchScreen.storyboard in Resources */,
 				7A8ECCDB2839E78A00CF0BBC /* Demp.storyboard in Resources */,
+				7A24B941283F391500B5FC44 /* MonTable.storyboard in Resources */,
 				7A41609B283B040600E3B65D /* GameTableViewCell.xib in Resources */,
 				7A59CBF6283AA65F00BDACAD /* BookMarks.storyboard in Resources */,
 				7A1ECBBA2839CDC8008BA6C3 /* Assets.xcassets in Resources */,
@@ -283,12 +296,15 @@
 				7A416092283AC97200E3B65D /* AppDelegate.swift in Sources */,
 				7A59CBF0283AA54D00BDACAD /* GameViewController.swift in Sources */,
 				7A41609A283B040600E3B65D /* GameTableViewCell.swift in Sources */,
+				7A24B93D283EE21E00B5FC44 /* MonsterDataManger.swift in Sources */,
 				7A8ECCD82839E37700CF0BBC /* DempViewController.swift in Sources */,
+				7A24B93B283E99C600B5FC44 /* MonsterData.swift in Sources */,
 				7A59CBF4283AA5E000BDACAD /* BookMarksViewController.swift in Sources */,
+				7A24B93F283EFC2500B5FC44 /* MonsterTableViewController.swift in Sources */,
 				7A59CBFE283ABB7A00BDACAD /* HomeViewController.swift in Sources */,
 				7A59CBF2283AA5A800BDACAD /* TypesViewController.swift in Sources */,
-				7A1ECBB52839CDC7008BA6C3 /* ViewController.swift in Sources */,
 				7A1ECBB32839CDC7008BA6C3 /* SceneDelegate.swift in Sources */,
+				7A24B943283F4C5600B5FC44 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

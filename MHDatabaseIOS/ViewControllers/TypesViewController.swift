@@ -8,23 +8,40 @@
 import UIKit
 
 class TypesViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
-
-    }
+    @IBOutlet weak var typeTableView: UITableView!
+    @IBOutlet weak var typStackTView: UITableView!
+    
+    let subGroupList = ["Normal", "Subspecies", "Rare Subspecies", "Variants", "Deviants"]
+    let categoryList = ["Neopteron", "Temnoceran", "Bird Wyvern", "Flying Wyvern", "Piscine Wyvern", "Carapaceon", "Amphibian", "Fanged Beast", "Leviathan", "Snake Wyvern", "Brute Wyvern", "Fanged Wyvern", "Elder Dragon","???"]
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        typeTableView.delegate = self
+        typeTableView.dataSource = self
+        
     }
-    */
-
 }
+
+extension TypesViewController: UITableViewDelegate {
+    func tableView(_ typeTableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Touched")
+    }
+}
+
+extension TypesViewController: UITableViewDataSource{
+    func tableView(_ typeTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Tablerow: ", categoryList.count)
+        return categoryList.count
+    }
+    
+    func tableView(_ typeTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = typeTableView.dequeueReusableCell(withIdentifier: "typeCell", for: indexPath)
+        cell.textLabel?.text = categoryList[indexPath.row]
+        return cell
+    }
+    
+}
+
