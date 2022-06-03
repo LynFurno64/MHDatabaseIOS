@@ -19,7 +19,6 @@
 		7A416092283AC97200E3B65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ECBB02839CDC7008BA6C3 /* AppDelegate.swift */; };
 		7A41609A283B040600E3B65D /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A416098283B040600E3B65D /* GameTableViewCell.swift */; };
 		7A41609B283B040600E3B65D /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A416099283B040600E3B65D /* GameTableViewCell.xib */; };
-		7A4160A0283B3D7000E3B65D /* mh4U.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A41609F283B3D7000E3B65D /* mh4U.png */; };
 		7A59CBF0283AA54D00BDACAD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59CBEF283AA54D00BDACAD /* GameViewController.swift */; };
 		7A59CBF2283AA5A800BDACAD /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59CBF1283AA5A800BDACAD /* TypesViewController.swift */; };
 		7A59CBF4283AA5E000BDACAD /* BookMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59CBF3283AA5E000BDACAD /* BookMarksViewController.swift */; };
@@ -27,9 +26,16 @@
 		7A59CBF8283AA66F00BDACAD /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A59CBF7283AA66F00BDACAD /* Game.storyboard */; };
 		7A59CBFA283AA68200BDACAD /* Types.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A59CBF9283AA68200BDACAD /* Types.storyboard */; };
 		7A59CBFC283AAA6C00BDACAD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A59CBFB283AAA6C00BDACAD /* Home.storyboard */; };
-		7A59CBFE283ABB7A00BDACAD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A59CBFD283ABB7A00BDACAD /* HomeViewController.swift */; };
-		7A8ECCD82839E37700CF0BBC /* DempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ECCD72839E37700CF0BBC /* DempViewController.swift */; };
-		7A8ECCDB2839E78A00CF0BBC /* Demp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ECCDA2839E78A00CF0BBC /* Demp.storyboard */; };
+		7AA4F1E02844423600545FDD /* Damage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA4F1DF2844423600545FDD /* Damage.storyboard */; };
+		7AA4F1E2284454B100545FDD /* MonsterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA4F1E1284454B100545FDD /* MonsterTableViewCell.swift */; };
+		7AA4F1E4284460F700545FDD /* phylums.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AA4F1E3284460F700545FDD /* phylums.json */; };
+		7AA4F1E62844670400545FDD /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA4F1E52844670400545FDD /* DataLoader.swift */; };
+		7AA4F1E8284477DF00545FDD /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA4F1E7284477DF00545FDD /* SortTableViewController.swift */; };
+		7AA4F1EA284478F400545FDD /* Sort.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA4F1E9284478F400545FDD /* Sort.storyboard */; };
+		7AC21A4F284827830087CFF1 /* TrapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC21A4D284827830087CFF1 /* TrapCollectionViewCell.swift */; };
+		7AC21A50284827830087CFF1 /* TrapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC21A4E284827830087CFF1 /* TrapCollectionViewCell.xib */; };
+		7ACB8FC728467BE8003906E3 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB8FC628467BE8003906E3 /* Details.storyboard */; };
+		7ADC917F2841A3B200A9C901 /* DamageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC917E2841A3B200A9C901 /* DamageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +54,6 @@
 		7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		7A416098283B040600E3B65D /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		7A416099283B040600E3B65D /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
-		7A41609F283B3D7000E3B65D /* mh4U.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mh4U.png; sourceTree = "<group>"; };
 		7A59CBEF283AA54D00BDACAD /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7A59CBF1283AA5A800BDACAD /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 		7A59CBF3283AA5E000BDACAD /* BookMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksViewController.swift; sourceTree = "<group>"; };
@@ -56,9 +61,16 @@
 		7A59CBF7283AA66F00BDACAD /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		7A59CBF9283AA68200BDACAD /* Types.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Types.storyboard; sourceTree = "<group>"; };
 		7A59CBFB283AAA6C00BDACAD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		7A59CBFD283ABB7A00BDACAD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7A8ECCD72839E37700CF0BBC /* DempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DempViewController.swift; sourceTree = "<group>"; };
-		7A8ECCDA2839E78A00CF0BBC /* Demp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Demp.storyboard; sourceTree = "<group>"; };
+		7AA4F1DF2844423600545FDD /* Damage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Damage.storyboard; sourceTree = "<group>"; };
+		7AA4F1E1284454B100545FDD /* MonsterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTableViewCell.swift; sourceTree = "<group>"; };
+		7AA4F1E3284460F700545FDD /* phylums.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phylums.json; sourceTree = "<group>"; };
+		7AA4F1E52844670400545FDD /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		7AA4F1E7284477DF00545FDD /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
+		7AA4F1E9284478F400545FDD /* Sort.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sort.storyboard; sourceTree = "<group>"; };
+		7AC21A4D284827830087CFF1 /* TrapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapCollectionViewCell.swift; sourceTree = "<group>"; };
+		7AC21A4E284827830087CFF1 /* TrapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrapCollectionViewCell.xib; sourceTree = "<group>"; };
+		7ACB8FC628467BE8003906E3 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		7ADC917E2841A3B200A9C901 /* DamageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageViewController.swift; sourceTree = "<group>"; };
 		C717A347492F5FA31F022F9D /* Pods-MHDatabaseIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHDatabaseIOS.release.xcconfig"; path = "Target Support Files/Pods-MHDatabaseIOS/Pods-MHDatabaseIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,9 +116,13 @@
 		7A1ECBAF2839CDC7008BA6C3 /* MHDatabaseIOS */ = {
 			isa = PBXGroup;
 			children = (
-				7A41609E283B3D2B00E3B65D /* image144 */,
-				7A416093283B038900E3B65D /* Other */,
-				7A8ECCD62839E34000CF0BBC /* ViewControllers */,
+				7A59CBFB283AAA6C00BDACAD /* Home.storyboard */,
+				7ACB8FCC28468562003906E3 /* Universal */,
+				7ACB8FCB28468489003906E3 /* Bookmarks */,
+				7ACB8FCA28468465003906E3 /* Game List */,
+				7ACB8FC9284683BD003906E3 /* Monster Class */,
+				7ACB8FC8284683AC003906E3 /* Monster List */,
+				7AA4F1E3284460F700545FDD /* phylums.json */,
 				7A1ECBB02839CDC7008BA6C3 /* AppDelegate.swift */,
 				7A1ECBB22839CDC7008BA6C3 /* SceneDelegate.swift */,
 				7A8ECCD92839E77100CF0BBC /* StoryBoards */,
@@ -115,52 +131,86 @@
 				7A1ECBBE2839CDC8008BA6C3 /* Info.plist */,
 				7A24B93A283E99C600B5FC44 /* MonsterData.swift */,
 				7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */,
+				7AA4F1E52844670400545FDD /* DataLoader.swift */,
 			);
 			path = MHDatabaseIOS;
 			sourceTree = "<group>";
 		};
-		7A416093283B038900E3B65D /* Other */ = {
+		7A416093283B038900E3B65D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				7A416098283B040600E3B65D /* GameTableViewCell.swift */,
 				7A416099283B040600E3B65D /* GameTableViewCell.xib */,
 			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		7A41609E283B3D2B00E3B65D /* image144 */ = {
-			isa = PBXGroup;
-			children = (
-				7A41609F283B3D7000E3B65D /* mh4U.png */,
-			);
-			path = image144;
-			sourceTree = "<group>";
-		};
-		7A8ECCD62839E34000CF0BBC /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7A8ECCD72839E37700CF0BBC /* DempViewController.swift */,
-				7A59CBEF283AA54D00BDACAD /* GameViewController.swift */,
-				7A59CBF1283AA5A800BDACAD /* TypesViewController.swift */,
-				7A59CBF3283AA5E000BDACAD /* BookMarksViewController.swift */,
-				7A59CBFD283ABB7A00BDACAD /* HomeViewController.swift */,
-				7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */,
-				7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */,
-			);
-			path = ViewControllers;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		7A8ECCD92839E77100CF0BBC /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				7A59CBFB283AAA6C00BDACAD /* Home.storyboard */,
-				7A8ECCDA2839E78A00CF0BBC /* Demp.storyboard */,
-				7A59CBF5283AA65F00BDACAD /* BookMarks.storyboard */,
-				7A59CBF7283AA66F00BDACAD /* Game.storyboard */,
-				7A59CBF9283AA68200BDACAD /* Types.storyboard */,
-				7A24B940283F391500B5FC44 /* MonTable.storyboard */,
+				7AA4F1E9284478F400545FDD /* Sort.storyboard */,
+				7AA4F1E7284477DF00545FDD /* SortTableViewController.swift */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		7AC21A4C284827520087CFF1 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7AC21A4D284827830087CFF1 /* TrapCollectionViewCell.swift */,
+				7AC21A4E284827830087CFF1 /* TrapCollectionViewCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		7ACB8FC8284683AC003906E3 /* Monster List */ = {
+			isa = PBXGroup;
+			children = (
+				7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */,
+				7A24B940283F391500B5FC44 /* MonTable.storyboard */,
+				7AA4F1E1284454B100545FDD /* MonsterTableViewCell.swift */,
+			);
+			path = "Monster List";
+			sourceTree = "<group>";
+		};
+		7ACB8FC9284683BD003906E3 /* Monster Class */ = {
+			isa = PBXGroup;
+			children = (
+				7A59CBF1283AA5A800BDACAD /* TypesViewController.swift */,
+				7A59CBF9283AA68200BDACAD /* Types.storyboard */,
+			);
+			path = "Monster Class";
+			sourceTree = "<group>";
+		};
+		7ACB8FCA28468465003906E3 /* Game List */ = {
+			isa = PBXGroup;
+			children = (
+				7A59CBEF283AA54D00BDACAD /* GameViewController.swift */,
+				7A59CBF7283AA66F00BDACAD /* Game.storyboard */,
+				7A416093283B038900E3B65D /* TableViewCell */,
+			);
+			path = "Game List";
+			sourceTree = "<group>";
+		};
+		7ACB8FCB28468489003906E3 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				7A59CBF3283AA5E000BDACAD /* BookMarksViewController.swift */,
+				7A59CBF5283AA65F00BDACAD /* BookMarks.storyboard */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		7ACB8FCC28468562003906E3 /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				7AC21A4C284827520087CFF1 /* CollectionView */,
+				7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */,
+				7ACB8FC628467BE8003906E3 /* Details.storyboard */,
+				7ADC917E2841A3B200A9C901 /* DamageViewController.swift */,
+				7AA4F1DF2844423600545FDD /* Damage.storyboard */,
+			);
+			path = Universal;
 			sourceTree = "<group>";
 		};
 		D5A7DAECABB9625D5AC9F271 /* Frameworks */ = {
@@ -231,12 +281,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A4160A0283B3D7000E3B65D /* mh4U.png in Resources */,
+				7AA4F1E4284460F700545FDD /* phylums.json in Resources */,
+				7ACB8FC728467BE8003906E3 /* Details.storyboard in Resources */,
 				7A59CBF8283AA66F00BDACAD /* Game.storyboard in Resources */,
 				7A1ECBBD2839CDC8008BA6C3 /* LaunchScreen.storyboard in Resources */,
-				7A8ECCDB2839E78A00CF0BBC /* Demp.storyboard in Resources */,
 				7A24B941283F391500B5FC44 /* MonTable.storyboard in Resources */,
 				7A41609B283B040600E3B65D /* GameTableViewCell.xib in Resources */,
+				7AA4F1EA284478F400545FDD /* Sort.storyboard in Resources */,
+				7AC21A50284827830087CFF1 /* TrapCollectionViewCell.xib in Resources */,
+				7AA4F1E02844423600545FDD /* Damage.storyboard in Resources */,
 				7A59CBF6283AA65F00BDACAD /* BookMarks.storyboard in Resources */,
 				7A1ECBBA2839CDC8008BA6C3 /* Assets.xcassets in Resources */,
 				7A59CBFA283AA68200BDACAD /* Types.storyboard in Resources */,
@@ -294,14 +347,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A416092283AC97200E3B65D /* AppDelegate.swift in Sources */,
+				7AC21A4F284827830087CFF1 /* TrapCollectionViewCell.swift in Sources */,
 				7A59CBF0283AA54D00BDACAD /* GameViewController.swift in Sources */,
+				7AA4F1E62844670400545FDD /* DataLoader.swift in Sources */,
 				7A41609A283B040600E3B65D /* GameTableViewCell.swift in Sources */,
 				7A24B93D283EE21E00B5FC44 /* MonsterDataManger.swift in Sources */,
-				7A8ECCD82839E37700CF0BBC /* DempViewController.swift in Sources */,
+				7ADC917F2841A3B200A9C901 /* DamageViewController.swift in Sources */,
 				7A24B93B283E99C600B5FC44 /* MonsterData.swift in Sources */,
 				7A59CBF4283AA5E000BDACAD /* BookMarksViewController.swift in Sources */,
+				7AA4F1E2284454B100545FDD /* MonsterTableViewCell.swift in Sources */,
 				7A24B93F283EFC2500B5FC44 /* MonsterTableViewController.swift in Sources */,
-				7A59CBFE283ABB7A00BDACAD /* HomeViewController.swift in Sources */,
+				7AA4F1E8284477DF00545FDD /* SortTableViewController.swift in Sources */,
 				7A59CBF2283AA5A800BDACAD /* TypesViewController.swift in Sources */,
 				7A1ECBB32839CDC7008BA6C3 /* SceneDelegate.swift in Sources */,
 				7A24B943283F4C5600B5FC44 /* DetailsViewController.swift in Sources */,

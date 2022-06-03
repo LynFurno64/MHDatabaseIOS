@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "category": "Neopteron",
+        "codename": "bug"
+    },
+    {
+        "id": 2,
+        "category": "Temnoceran",
+        "codename": "spider"
+    },
+    {
+        "id": 3,
+        "category": "Bird Wyvern",
+        "codename": "bird"
+    },
+    {
+        "id": 4,
+        "category": "Flying Wyvern",
+        "codename": "flying"
+    },
+    {
+        "id": 5,
+        "category": "Piscine Wyvern",
+        "codename": "fish"
+    },
+    {
+        "id": 6,
+        "category": "Carapaceon",
+        "codename": "crab"
+    },
+    {
+        "id": 7,
+        "category": "Amphibian",
+        "codename": "frog"
+    },
+    {
+        "id": 8,
+        "category": "Fanged Beast",
+        "codename": "beast"
+    },
+    {
+        "id": 9,
+        "category": "Leviathan",
+        "codename": "water"
+    },
+    {
+        "id": 10,
+        "category": "Snake Wyvern",
+        "codename": "snake"
+    },
+    {
+        "id": 11,
+        "category": "Brute Wyvern",
+        "codename": "brute"
+    },
+    {
+        "id": 12,
+        "category": "Fanged Wyvern",
+        "codename": "fanged"
+    },
+    {
+        "id": 13,
+        "category": "Elder Dragon",
+        "codename": "elder"
+    },
+    {
+        "id": 14,
+        "category": "Unknown",
+        "codename": "???"
+    }
+]

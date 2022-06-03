@@ -15,13 +15,16 @@ struct Monster: Codable {
     let variation: Int
 }
 
-
-struct ItemRepsond: Codable {
-    let item_weak: [ItemWeakness]
+struct Phylums: Codable {
+    let id: Int
+    let category: String
+    let codename: String
 }
+
 
 struct ItemWeakness: Codable {
     let id: Int
+    let mon_id: Int
     let flash_bomb: Bool
     let pitfall_trap: Bool
     let shock_trap: Bool
@@ -33,19 +36,19 @@ struct WeakPointRespond: Codable {
 }
 struct Weakpoint: Codable {
     let id: Int
+    let mon_id: Int
     let cut: String
     let impact: String
     let projectile: String
 }
 
 
-struct WeaknessRespond: Codable {
-    let weakness: [Weakness]
-}
 struct Weakness: Codable {
     let id: Int
+    let mon_id: Int
     let dragon: Bool
     let fire: Bool
+    let water: Bool
     let ice: Bool
     let thunder: Bool
     let para: Bool
@@ -80,17 +83,11 @@ struct Ailments: Codable {
 }
 
 struct GameRespond: Codable {
-    let games: [Games]
+    let egames: [Games]
 }
 struct Games: Codable {
     let id: Int
-    let MH3U: Bool?
-    let MH3rd: Bool?
-    let MH4U: Bool?
-    let MHF: Bool?
-    let MHF2: Bool?
-    let MHGU: Bool?
-    let MHRS: Bool?
-    let MHWI: Bool?
+    let mon_id: Int
+    let games: String
 }
 
