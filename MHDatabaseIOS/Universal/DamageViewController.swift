@@ -16,8 +16,12 @@ class DamageViewController: UIViewController {
 
     @IBOutlet weak var trapCollectionView: UICollectionView!
     @IBOutlet weak var weaknessCollectionView: UICollectionView!
-
     
+    @IBOutlet weak var cutTextView: UITextView!
+    @IBOutlet weak var impactTextView: UITextView!
+    @IBOutlet weak var gunTextView: UITextView!
+    
+
     var passedMonId : Int! = 1
 
     
@@ -43,13 +47,9 @@ class DamageViewController: UIViewController {
         trapCollectionView.dataSource = self
         weaknessCollectionView.dataSource = self
        
-        
-        print("To Get Data I:")
-        //getMonsterItem(withID: passedMonId)
         getMonsterData(withID: "itemWeakness", id: passedMonId)
-        print("To Get Data W:")
-        //getMonsterWeakness(withID: passedMonId)
         getMonsterData(withID: "weakness", id: passedMonId)
+        getMonsterData(withID: "weakpoints", id: passedMonId)
     }
     
 
@@ -58,8 +58,6 @@ class DamageViewController: UIViewController {
     */
     
     // MARK: - Networking
-    // itemWeakness
-    
     
     func getMonsterData(withID name: String, id: Int) {
         
@@ -76,39 +74,20 @@ class DamageViewController: UIViewController {
             
             switch name {
             case "itemWeakness":
-                print("In Case I:")
                 self.items(with: data)
                 break
             case "weakness":
-                print("In Case W:")
                 self.weakness(with: data)
+                break
+            case "weakpoints":
+                self.weakpoints(with: data)
                 break
             default:
                 break
             }
 
-        }//.cancel()
-        .resume()
+        }.resume()
     }// getMonsterData
-    
-    
-    
-    
-    func getMonsterItem(withID id: Int) {
-        
-        guard let url = URL(string: "http://127.0.0.1:5000/app/itemWeakness/\(id)") else {
-            fatalError("URL guard stmt failed")
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            guard let data = data else { return }
-            self.items(with: data)
-
-            }.resume()
-    }// getMonsterItem
     
     
     func items(with data: Data) {
@@ -140,34 +119,14 @@ class DamageViewController: UIViewController {
                 self.itemArray.append("trap_shock")
             }
             
-            
             print("Items Array: ", self.itemArray)
-
-            
             //Get back to the main queue
             DispatchQueue.main.async {
                 self.trapCollectionView.reloadData()
-
             }
             
         } catch let jsonError {print(jsonError)}
     }// items
-    
-    func getMonsterWeakness(withID id: Int) {
-        
-        guard let url = URL(string: "http://127.0.0.1:5000/app/weakness/\(id)") else {
-            fatalError("URL guard stmt failed")
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            guard let data = data else { return }
-            self.weakness(with: data)
-
-        }.resume()
-    }// getMonsterItem
     
     func weakness(with data: Data) {
         do {
@@ -212,7 +171,21 @@ class DamageViewController: UIViewController {
             }
             
         } catch let jsonError {print(jsonError)}
-    }// items
+    }// weakness
+    
+    
+    func weakpoints(with data: Data) {
+        do {
+            //Decode data
+            let monData = try JSONDecoder().decode(Weakpoint.self, from: data)
+            DispatchQueue.main.async {
+                self.cutTextView.text = monData.cut
+                self.impactTextView.text = monData.impact
+                self.gunTextView.text = monData.projectile
+            }
+            
+        } catch let jsonError {print(jsonError)}
+    }
     
 }
 
@@ -250,7 +223,11 @@ extension DamageViewController: UICollectionViewDataSource {
 // Defines padding 
 extension DamageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
+        if collectionView == self.trapCollectionView {
+            return CGSize(width: 50, height: 50)
+        }
+        return CGSize(width: 40, height: 40)
+        //return CGSize(width: 50, height: 50)
     }
 }
 

@@ -15,14 +15,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var familyLablel: UILabel!
     @IBOutlet weak var generationLablel: UILabel!
     @IBOutlet weak var classLabel: UILabel!
-    
-    @IBOutlet weak var fire: UIImageView!
-    @IBOutlet weak var water: UIImageView!
-    @IBOutlet weak var ice: UIImageView!
-    @IBOutlet var thunder: UIView!
-    @IBOutlet weak var dragon: UIImageView!
-    
-    
+    @IBOutlet weak var nameLabel: UILabel!
+
     
     var passedImage : UIImage! = nil
     var passedMonId : Int! = 1
@@ -35,10 +29,11 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         self.myImageView.image = passedImage
         navTitle.title = passedName
+        nameLabel.text = passedName
         
         setFamilyText(vary: passedVary)
         classLabel.text = passedClass
-        generationLablel.text = "Gen " +  String(passedGen)
+        generationLablel.text = "Debut in Gen " +  String(passedGen)
         
         getMonsterElement(withID: passedMonId)
     }
@@ -50,15 +45,19 @@ class DetailsViewController: UIViewController {
             break
         case 2:
             familyLablel.text = "Subspecies"
+            familyLablel.textColor = .systemGreen
             break
         case 3:
             familyLablel.text = "Rare Species"
+            familyLablel.textColor = .systemBlue
             break
         case 4:
             familyLablel.text = "Variant"
+            familyLablel.textColor = .systemRed
             break
         case 5:
             familyLablel.text = "Deviant"
+            familyLablel.textColor = .systemPurple
             break
         default:
             familyLablel.text = "?????"
@@ -95,7 +94,7 @@ class DetailsViewController: UIViewController {
                 
                 //Get back to the main queue
                 DispatchQueue.main.async {
-                    
+                    /*
                     if monStrenght.fire {
                         self.fire.isHidden = false
                     }
@@ -110,7 +109,7 @@ class DetailsViewController: UIViewController {
                     }
                     if monStrenght.dragon {
                         self.dragon.isHidden = false
-                    }
+                    }*/
                     
                 }
                 
