@@ -16,7 +16,7 @@ class DamageViewController: UIViewController {
 
     @IBOutlet weak var trapCollectionView: UICollectionView!
     @IBOutlet weak var weaknessCollectionView: UICollectionView!
-    
+        
     @IBOutlet weak var cutTextView: UITextView!
     @IBOutlet weak var impactTextView: UITextView!
     @IBOutlet weak var gunTextView: UITextView!
@@ -98,28 +98,17 @@ class DamageViewController: UIViewController {
             print(monData)
             
             if monData.flash_bomb {
-                print("monData.flash_bomb: ", monData.flash_bomb)
-
                 self.itemArray.append("bomb_flash")
             }
             if monData.sonic_bomb {
-                print("monData.sonic_bomb: ", monData.sonic_bomb)
-
-                
                 self.itemArray.append("bomb_sonic")
             }
             if monData.pitfall_trap {
-                print("monData.pitfall_trap: ", monData.pitfall_trap)
-
                 self.itemArray.append("trap_pitfall")
             }
             if monData.shock_trap {
-                print("monData.shock_trap: ", monData.shock_trap)
-
                 self.itemArray.append("trap_shock")
             }
-            
-            print("Items Array: ", self.itemArray)
             //Get back to the main queue
             DispatchQueue.main.async {
                 self.trapCollectionView.reloadData()
@@ -163,8 +152,6 @@ class DamageViewController: UIViewController {
             if monData2.blast {
                 self.weaknessArray.append("Blastblight")
             }
-            print("Weakness Array: ", self.weaknessArray)
-
         
             DispatchQueue.main.sync {
                 self.weaknessCollectionView.reloadData()

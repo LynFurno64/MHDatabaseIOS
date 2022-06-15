@@ -82,19 +82,23 @@ class SortTableViewController: UITableViewController {
     
     // Open the next view while passing information to it
     override func tableView(_ mytableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let monstie = monsterArray[indexPath.row]
-        let name = monstie.name
-        
-        let imageName = name.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
-        print("\(imageName).png")
-        
-        
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Details", bundle: nil)
-        let detailsVC = storyBoard.instantiateViewController(withIdentifier: "monsterDetails") as! DetailsViewController
-        detailsVC.passedImage = UIImage.init(named: "\(imageName).png")
-        detailsVC.passedName = name
-        self.navigationController?.pushViewController(detailsVC, animated: true)
+        if loading {
+            noConnectionAlert()
+        }
+        else {
+            let monstie = monsterArray[indexPath.row]
+            let name = monstie.name
+            
+            let imageName = name.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+            print("\(imageName).png")
+            
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Details", bundle: nil)
+            let detailsVC = storyBoard.instantiateViewController(withIdentifier: "monsterDetails") as! DetailsViewController
+            detailsVC.passedImage = UIImage.init(named: "\(imageName).png")
+            detailsVC.passedName = name
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
 
     }
     
@@ -131,6 +135,25 @@ class SortTableViewController: UITableViewController {
             }
             
         }.resume()
+    }
+    
+    /// Show an alert with an "OK" button.
+    func noConnectionAlert() {
+        let title = NSLocalizedString("Error", comment: "")
+        let message = NSLocalizedString("Cannot connect to server", comment: "")
+        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        // Create the action.
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { _ in
+            Swift.debugPrint("The simple alert's cancel action occurred.")
+        }
+
+        // Add the action.
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 
 }

@@ -11,8 +11,6 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     let gameList = ["Freedom", "Freedom Unite", "Portable 3rd", "3 Ultimate", "4 Ultimate", "Generation Ultimate", "World & Iceborne", "Rise & Sunbreak"]
-    
-    
     let imageList = ["f", "fu", "3rd", "3u", "4u", "gu", "wi", "rs"]
     
     override func viewDidLoad() {

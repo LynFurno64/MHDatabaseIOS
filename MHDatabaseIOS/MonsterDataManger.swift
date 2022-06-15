@@ -60,4 +60,5 @@ class MonsterDataManager {
       urlComponents.path = "/app/\(name)/\(id)"
       return urlComponents.url!
     }
+    
 }

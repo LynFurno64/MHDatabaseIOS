@@ -33,7 +33,7 @@
                 <outlet property="imageView" destination="pIp-9T-OZl" id="QSk-Js-hgW"/>
                 <outlet property="imageViewB" destination="pIp-9T-OZl" id="SGg-h7-SRW"/>
             </connections>
-            <point key="canvasLocation" x="140.57971014492756" y="115.84821428571428"/>
+            <point key="canvasLocation" x="139.85507246376812" y="115.51339285714285"/>
         </collectionViewCell>
     </objects>
 </document>

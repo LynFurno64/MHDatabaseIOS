@@ -31,9 +31,6 @@ struct ItemWeakness: Codable {
     let sonic_bomb: Bool
 }
 
-struct WeakPointRespond: Codable {
-    let weakpoints: [Weakpoint]
-}
 struct Weakpoint: Codable {
     let id: Int
     let mon_id: Int
@@ -58,10 +55,6 @@ struct Weakness: Codable {
 
 }
 
-
-struct StrenghtRespond: Codable {
-    let strength: [Strength]
-}
 struct Strength: Codable {
     let id: Int
     let dragon: Bool
@@ -71,23 +64,23 @@ struct Strength: Codable {
     let water: Bool
 }
 
-struct AilmentsRespond: Codable {
-    let ailments: [Ailments]
-}
 struct Ailments: Codable {
     let id: Int
-    let blight: Bool
+    let blight: String
     let natural: String
     let status: String
     
 }
 
-struct GameRespond: Codable {
-    let egames: [Games]
-}
+// has an array object
 struct Games: Codable {
+    let games_in: [Game]
+}
+
+
+struct Game: Codable {
+    let games: String
     let id: Int
     let mon_id: Int
-    let games: String
 }
 
