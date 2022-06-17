@@ -27,6 +27,10 @@ class SortTableViewController: UITableViewController {
         super.viewDidLoad()
         title = passedName
         let query = passedName!
+        
+        if passedType == "saved"{
+            navigationItem.hidesBackButton = true
+        }
                 
         // Give correct names
         dataPhylum.forEach { phylum in
@@ -47,9 +51,7 @@ class SortTableViewController: UITableViewController {
             monsterList(withQuery: query)
             break
         case "saved":
-            navigationItem.hidesBackButton = true
             savedMonsterList(withQuery: passedSaved)
-            reloadInputViews()
             break
         default:
             break
