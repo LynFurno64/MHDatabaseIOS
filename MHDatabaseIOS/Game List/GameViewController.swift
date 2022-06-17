@@ -15,7 +15,6 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBackground
         
         // Register Custom Table Cell
@@ -26,20 +25,57 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
 
     }
-    
-
+    func nameCase(name: String) -> String {
+        /**l["MHF", "MHFU", "MH3rd", "MH3U", "MH4U", "MHGU", "MHWI", "MHRS"]
+         ["Freedom", "Freedom Unite", "Portable 3rd", "3 Ultimate", "4 Ultimate", "Generation Ultimate", "World & Iceborne", "Rise & Sunbreak"]  */
+        var newName = ""
+        
+        switch name {
+        case "Freedom":
+            newName = "MHF"
+            break
+        case "Freedom Unite":
+            newName = "MHFU"
+            break
+        case "Portable 3rd":
+            newName = "MH3rd"
+            break
+        case "3 Ultimate":
+            newName = "MH3U"
+            break
+        case "4 Ultimate":
+            newName = "MH4U"
+            break
+        case "Generation Ultimate":
+            newName = "MHGU"
+            break
+        case "World & Iceborne":
+            newName = "MHWI"
+            break
+        case "Rise & Sunbreak":
+            newName = "MHRS"
+            break
+        default:
+            break
+        }
+        return newName
+    }
     
     //Table Func
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gameList.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "monDetails", sender: indexPath.row)
-
         print("Touched")
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Sort", bundle: nil)
+        let sortedTableVC = storyBoard.instantiateViewController(withIdentifier: "SortTableView") as! SortTableViewController
+        
+        print(nameCase(name: gameList[indexPath.row]))
+        sortedTableVC.passedName = nameCase(name: gameList[indexPath.row])
+        sortedTableVC.passedType = "games"
+        navigationController?.pushViewController(sortedTableVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

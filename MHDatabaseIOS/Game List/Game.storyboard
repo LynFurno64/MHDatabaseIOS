@@ -32,9 +32,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ild-3Q-Pur" kind="show" identifier="monDetails" id="d8q-Wf-9e9"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -64,16 +61,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.85507246376824" y="93.75"/>
-        </scene>
-        <!--MonTable-->
-        <scene sceneID="gFV-h5-YkF">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MonTable" id="ild-3Q-Pur" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="B4T-zJ-IEy"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qUd-bb-aYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1672" y="141"/>
         </scene>
         <!--Game List-->
         <scene sceneID="7EW-bK-9Xe">

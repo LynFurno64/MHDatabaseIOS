@@ -96,6 +96,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bYW-BZ-CTR"/>
+                    <connections>
+                        <outlet property="sorttableView" destination="seP-rI-2Y7" id="LZK-74-DlT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNk-oa-6c6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

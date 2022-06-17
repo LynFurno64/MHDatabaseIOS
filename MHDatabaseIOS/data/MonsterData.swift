@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct MonstersList: Codable {
+    let monsters: [Monster]
+}
+
 struct Monster: Codable {
     let generation: Int
     let group: String
@@ -76,11 +80,15 @@ struct Ailments: Codable {
 struct Games: Codable {
     let games_in: [Game]
 }
-
-
+struct AllGames: Codable {
+    let gamesList: [Game]
+}
 struct Game: Codable {
     let games: String
     let id: Int
     let mon_id: Int
 }
 
+struct Relatives: Codable {
+    let relatives: [Monster]
+}

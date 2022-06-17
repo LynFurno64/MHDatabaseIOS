@@ -12,7 +12,6 @@
 		7A1ECBBA2839CDC8008BA6C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1ECBB92839CDC8008BA6C3 /* Assets.xcassets */; };
 		7A1ECBBD2839CDC8008BA6C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1ECBBB2839CDC8008BA6C3 /* LaunchScreen.storyboard */; };
 		7A24B93B283E99C600B5FC44 /* MonsterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B93A283E99C600B5FC44 /* MonsterData.swift */; };
-		7A24B93D283EE21E00B5FC44 /* MonsterDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */; };
 		7A24B93F283EFC2500B5FC44 /* MonsterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */; };
 		7A24B941283F391500B5FC44 /* MonTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A24B940283F391500B5FC44 /* MonTable.storyboard */; };
 		7A24B943283F4C5600B5FC44 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */; };
@@ -47,7 +46,6 @@
 		7A1ECBBC2839CDC8008BA6C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A1ECBBE2839CDC8008BA6C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A24B93A283E99C600B5FC44 /* MonsterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterData.swift; sourceTree = "<group>"; };
-		7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataManger.swift; sourceTree = "<group>"; };
 		7A24B93E283EFC2500B5FC44 /* MonsterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTableViewController.swift; sourceTree = "<group>"; };
 		7A24B940283F391500B5FC44 /* MonTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonTable.storyboard; sourceTree = "<group>"; };
 		7A24B942283F4C5600B5FC44 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				7A59CBFB283AAA6C00BDACAD /* Home.storyboard */,
+				7AE19129285B775A00612C13 /* data */,
 				7ACB8FCC28468562003906E3 /* Universal */,
 				7ACB8FCB28468489003906E3 /* Bookmarks */,
 				7ACB8FCA28468465003906E3 /* Game List */,
@@ -127,9 +126,6 @@
 				7A1ECBB92839CDC8008BA6C3 /* Assets.xcassets */,
 				7A1ECBBB2839CDC8008BA6C3 /* LaunchScreen.storyboard */,
 				7A1ECBBE2839CDC8008BA6C3 /* Info.plist */,
-				7A24B93A283E99C600B5FC44 /* MonsterData.swift */,
-				7A24B93C283EE21E00B5FC44 /* MonsterDataManger.swift */,
-				7AA4F1E52844670400545FDD /* DataLoader.swift */,
 			);
 			path = MHDatabaseIOS;
 			sourceTree = "<group>";
@@ -208,6 +204,15 @@
 				7ADC917E2841A3B200A9C901 /* DamageViewController.swift */,
 			);
 			path = Universal;
+			sourceTree = "<group>";
+		};
+		7AE19129285B775A00612C13 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				7A24B93A283E99C600B5FC44 /* MonsterData.swift */,
+				7AA4F1E52844670400545FDD /* DataLoader.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 		D5A7DAECABB9625D5AC9F271 /* Frameworks */ = {
@@ -347,7 +352,6 @@
 				7A59CBF0283AA54D00BDACAD /* GameViewController.swift in Sources */,
 				7AA4F1E62844670400545FDD /* DataLoader.swift in Sources */,
 				7A41609A283B040600E3B65D /* GameTableViewCell.swift in Sources */,
-				7A24B93D283EE21E00B5FC44 /* MonsterDataManger.swift in Sources */,
 				7ADC917F2841A3B200A9C901 /* DamageViewController.swift in Sources */,
 				7A24B93B283E99C600B5FC44 /* MonsterData.swift in Sources */,
 				7A59CBF4283AA5E000BDACAD /* BookMarksViewController.swift in Sources */,

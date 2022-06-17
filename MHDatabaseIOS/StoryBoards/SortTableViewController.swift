@@ -10,46 +10,137 @@ import UIKit
 class SortTableViewController: UITableViewController {
     @IBOutlet weak var sorttableView: UITableView!
 
-    
     var passedName : String! = "Detials"
+    var passedType : String! = ""
+    var passedSaved: [Int]!
 
     private var monsterArray = [Monster]()
+    private var allMonsterArray = [Monster]()
+
+    
     private var loading = true
-    private var monsterCount = 58
+    private var monsterCount = 100
     
     let dataPhylum = DataLoader().phylumData
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = passedName
-
-        var check = passedName!
-        
+        let query = passedName!
+                
         // Give correct names
         dataPhylum.forEach { phylum in
-            if check == phylum.category {
-                check = phylum.codename
+            if query == phylum.category {
+                passedName = phylum.codename
             }
         }
-        
-        for i in stride(from: 1, through: monsterCount + 1, by: 1) {
-            getMonster(withID: i, withString: check)
+        getAllMonster()
+    }
+    
+    /** Determines how the table will be sorted **/
+    func searchType(search: String, query: String) {
+        switch search {
+        case "games":
+            getMonsterData(withQuery: query)
+            break
+        case "species":
+            monsterList(withQuery: query)
+            break
+        case "saved":
+            navigationItem.hidesBackButton = true
+            savedMonsterList(withQuery: passedSaved)
+            reloadInputViews()
+            break
+        default:
+            break
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: - Networking
+    func getAllMonster() {
+        guard let url = URL(string: "http://127.0.0.1:5000/app/monsterList") else {
+            fatalError("URL guard stmt failed")
+        }
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            if let data = data {
+                guard let monsterJSONData = try? JSONDecoder().decode(MonstersList.self, from: data) else
+                {
+                    return /** Return if the monster count is out of range */
+                }
+                
+                for x in monsterJSONData.monsters {
+                    self?.allMonsterArray.append(x)
+                }
+            }
 
+            DispatchQueue.main.sync {
+                self?.searchType(search: (self?.passedType)!, query: (self?.passedName)!)
+                self?.sorttableView.reloadData()
+            }
+        }.resume()
+    }
+    
+    
+    func getMonsterData(withQuery query: String) {
+        guard let url = URL(string: "http://127.0.0.1:5000/app/games") else {
+            fatalError("URL guard stmt failed")
+        }
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            if let data = data {
+                
+                guard let monsterGameData = try? JSONDecoder().decode(AllGames.self, from: data) else
+                { return /** Return if the monster count is out of range */ }
+                
+                // Filter data
+                for x in monsterGameData.gamesList {
+                    if x.games == query {
+                        self?.allMonsterArray.forEach({ Monster in
+                            if Monster.id == x.mon_id {
+                                self?.monsterArray.append(Monster)
+                            }
+                        })
+                    }
+                }
+            }
+            self?.loading = false
+            DispatchQueue.main.sync {
+                self?.sorttableView.reloadData()
+            }
+            
+        }.resume()
+    }
+    
+    func monsterList(withQuery query: String) {
+        print("monsterList2", query)
+        for x in allMonsterArray {
+            if x.group == query {
+                monsterArray.append(x)
+            }
+        }
+        self.loading = false
+        self.sorttableView.reloadData()
+    }/// monsterList
+
+    func savedMonsterList(withQuery bookmarked: [Int]) {
+        for id in bookmarked {
+            
+            for monstie in allMonsterArray {
+                if monstie.id == id {
+                    monsterArray.append(monstie)
+                }
+            }
+        }
+        self.loading = false
+        self.sorttableView.reloadData()
+    }/// monsterList
+    
+    // MARK: - Table view data source
     override func tableView(_ mytableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //mytableView.register(UITableViewCell.self, forCellReuseIdentifier: "MonsterTableViewCell")
         let cell = mytableView.dequeueReusableCell(withIdentifier: "SortTableViewCell", for: indexPath) as! MonsterTableViewCell
-        
         
         if loading {
             cell.nameLabel.text = "Loading............"
         } else {
-            
             let monstie = monsterArray[indexPath.row]
             cell.nameLabel.text = monstie.name
             let imageName = monstie.name.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
@@ -67,12 +158,8 @@ class SortTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if loading {
-            return 1
-        }
-        else {
-            return monsterArray.count
-        }
+        if loading { return 1 }
+        else { return monsterArray.count }
     }
     
     // Set table height to 80.0
@@ -82,9 +169,7 @@ class SortTableViewController: UITableViewController {
     
     // Open the next view while passing information to it
     override func tableView(_ mytableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if loading {
-            noConnectionAlert()
-        }
+        if loading { noConnectionAlert() }
         else {
             let monstie = monsterArray[indexPath.row]
             let name = monstie.name
@@ -97,45 +182,21 @@ class SortTableViewController: UITableViewController {
             let detailsVC = storyBoard.instantiateViewController(withIdentifier: "monsterDetails") as! DetailsViewController
             detailsVC.passedImage = UIImage.init(named: "\(imageName).png")
             detailsVC.passedName = name
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        }
-
-    }
-    
-    
-    
-
-    // Networking
-    func getMonster(withID id: Int, withString check: String) {
-        guard let url = URL(string: "http://127.0.0.1:5000/app/monsterList/\(id)") else {
-            fatalError("URL guard stmt failed")
-        }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            if let data = data {
-                guard let monsterJSONData = try? JSONDecoder().decode(Monster.self, from: data) else
-                {
-                    return // Return if the monster count is out of range
+            
+            // Give correct names
+            dataPhylum.forEach { phylum in
+                if monstie.group == phylum.codename {
+                    detailsVC.passedClass = phylum.category
                 }
-                
-                // Filter data
-                if  monsterJSONData.group == check {
-                    self?.monsterArray.append(monsterJSONData)
-                }
-                
-                if  check == "normal" {
-                    self?.monsterArray.append(monsterJSONData)
-                }
-                
-                
-            }
-            self?.loading = false
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
             }
             
-        }.resume()
+            detailsVC.passedGen = monstie.generation
+            detailsVC.passedVary = monstie.variation
+            detailsVC.passedMonId = monstie.id
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
     }
+
     
     /// Show an alert with an "OK" button.
     func noConnectionAlert() {
@@ -149,11 +210,8 @@ class SortTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { _ in
             Swift.debugPrint("The simple alert's cancel action occurred.")
         }
-
         // Add the action.
         alertController.addAction(cancelAction)
-
         present(alertController, animated: true, completion: nil)
     }
-
 }

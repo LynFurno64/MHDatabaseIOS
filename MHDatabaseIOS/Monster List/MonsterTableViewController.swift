@@ -15,31 +15,25 @@ class MonsterTableViewController: UITableViewController {
     private var monsterCount = 75
     
     let dataPhylum = DataLoader().phylumData
+    let createBookMarkdata = BookmarkData().file()
+
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for i in stride(from: 1, through: monsterCount + 1, by: 1) {
-            getMonster(withID: i)
-        }
-        
+        createBookMarkdata
+        getAllMonster()
     }
 
     // MARK: - Table view data source
     override func tableView(_ mytableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if loading {
-            return 1
-        }
-        else {
-            return monsterArray.count
-        }
+        if loading { return 1 }
+        else { return monsterArray.count }
     }
     
     override func tableView(_ mytableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = mytableView.dequeueReusableCell(withIdentifier: "MonsterTableViewCell", for: indexPath) as! MonsterTableViewCell
-        
         
         if loading {
             cell.nameLabel.text = "Loading............"
@@ -91,9 +85,6 @@ class MonsterTableViewController: UITableViewController {
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
 
-        
-
-
         /*
         let Vc = storyboard?.instantiateViewController(withIdentifier: "monsterDetails") as! DetailsViewController
         
@@ -109,27 +100,24 @@ class MonsterTableViewController: UITableViewController {
     }
     
     
-
-    // Networking
-    func getMonster(withID id: Int) {
-        guard let url = URL(string: "http://127.0.0.1:5000/app/monsterList/\(id)") else {
+    // MARK: - Networking
+    func getAllMonster() {
+        guard let url = URL(string: "http://127.0.0.1:5000/app/monsterList") else {
             fatalError("URL guard stmt failed")
         }
-        
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             if let data = data {
-                guard let monsterJSONData = try? JSONDecoder().decode(Monster.self, from: data) else
-                {
-                    return // Return if the monster count is out of range
-                }
+                guard let monsterJSONData = try? JSONDecoder().decode(MonstersList.self, from: data) else
+                { return } /** Return if the monster count is out of range */
                 
-                self?.monsterArray.append(monsterJSONData)
+                for monstie in monsterJSONData.monsters {
+                    self?.monsterArray.append(monstie)
+                }
             }
             self?.loading = false
             DispatchQueue.main.async {
                 self?.mytableView.reloadData()
             }
-            
         }.resume()
     }
     
@@ -140,17 +128,13 @@ class MonsterTableViewController: UITableViewController {
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("Cannot connect to server", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
         // Create the action.
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { _ in
             Swift.debugPrint("The simple alert's cancel action occurred.")
         }
-
         // Add the action.
         alertController.addAction(cancelAction)
-
         present(alertController, animated: true, completion: nil)
     }
 }

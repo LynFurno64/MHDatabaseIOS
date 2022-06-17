@@ -35,6 +35,7 @@ extension TypesViewController: UITableViewDelegate {
         let sortedTableVC = storyBoard.instantiateViewController(withIdentifier: "SortTableView") as! SortTableViewController
         
         sortedTableVC.passedName = categoryList[indexPath.row]
+        sortedTableVC.passedType = "species"
         navigationController?.pushViewController(sortedTableVC, animated: true)
     }
 }

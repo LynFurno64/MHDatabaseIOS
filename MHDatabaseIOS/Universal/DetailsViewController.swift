@@ -12,6 +12,9 @@ class DetailsViewController: UIViewController {
     private var elementArray = [String]()
     private var ailmentArray = [String]()
     private var gameArray = [String]()
+    private var relativeArray = [String]()
+    
+    private var markedArray = [String]()
 
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var navTitle: UINavigationItem!
@@ -25,11 +28,13 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var gamesTextView: UITextView!
-
+    @IBOutlet weak var relatedTextView: UITextView!
     
-    @IBOutlet weak var menuPopUpButton: UIButton!
+    @IBOutlet weak var relatedView: UIView!
 
-
+    @IBOutlet weak var bookmarkButton: UIBarButtonItem!
+    private var bookmarked = false
+    
     // varibles passed from other views
     var passedImage : UIImage! = nil
     var passedMonId : Int! = 1
@@ -53,17 +58,28 @@ class DetailsViewController: UIViewController {
         elementCollectionView.register(TrapCollectionViewCell.nib(), forCellWithReuseIdentifier: TrapCollectionViewCell.identifier)
         elementCollectionView.delegate = self
         elementCollectionView.dataSource = self
+        getMonsterData(withPath: "strength", id: passedMonId)
         
-        getMonsterData(withID: "strength", id: passedMonId)
-        
-        
-        //ailmentTableView.delegate = self
         ailmentTableView.dataSource = self
+        getMonsterData(withPath: "ailments", id: passedMonId)
         
-        getMonsterData(withID: "ailments", id: passedMonId)
+        getMonsterData(withPath: "games", id: passedMonId)
+        getMonsterData(withPath: "family", id: passedMonId)
         
-        getMonsterData(withID: "games", id: passedMonId)
-
+        markedArray = BookmarkData().readFile()
+        print(markedArray)
+        
+        for id in markedArray {
+            if passedMonId == Int(id){
+                bookmarked = true
+                bookmarkButton.isSelected = true
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        print(bookmarkButton.isSelected)
     }
     
     func setFamilyText(vary : Int) {
@@ -98,12 +114,30 @@ class DetailsViewController: UIViewController {
         damageVC.passedMonId = passedMonId
         
         self.navigationController?.present(damageVC, animated: true)
-        // self.navigationController?.pushViewController(damageVC, animated: true)
     }
     
-    // Networking \\
-    func getMonsterData(withID name: String, id: Int) {
-        
+    
+    @IBAction func marked(_ sender: UIBarButtonItem) {
+        if bookmarked {
+            sender.isSelected = false
+            bookmarked = false
+            if let index = markedArray.firstIndex(of: String(passedMonId)) {
+                markedArray.remove(at: index)
+            }
+            print("Marked out",markedArray)
+            BookmarkData().writeToFile(withArray: markedArray)
+        }
+        else {
+            sender.isSelected = true
+            bookmarked = true
+            markedArray.append(String(passedMonId))
+            print("Marked in",markedArray)
+            BookmarkData().writeToFile(withArray: markedArray)
+        }
+    }
+    
+    // MARK: - Networking
+    func getMonsterData(withPath name: String, id: Int) {
         guard let url = URL(string: "http://127.0.0.1:5000/app/\(name)/\(id)") else {
             fatalError("URL guard stmt failed")
         }
@@ -123,8 +157,10 @@ class DetailsViewController: UIViewController {
                 self.ailments(with: data)
                 break
             case "games":
-                print(id, ", Data: ", data)
                 self.games_in(with: data)
+                break
+            case "family":
+                self.family(with: data)
                 break
             default:
                 break
@@ -137,21 +173,11 @@ class DetailsViewController: UIViewController {
         do {
             //Decode data
             let monData = try JSONDecoder().decode(Strength.self, from: data)
-            if monData.dragon {
-                self.elementArray.append("Dragon")
-            }
-            if monData.fire {
-                self.elementArray.append("Fire")
-            }
-            if monData.ice {
-                self.elementArray.append("Ice")
-            }
-            if monData.water {
-                self.elementArray.append("Water")
-            }
-            if monData.thunder {
-                self.elementArray.append("Thunder")
-            }
+            if monData.dragon { self.elementArray.append("Dragon") }
+            if monData.fire { self.elementArray.append("Fire") }
+            if monData.ice { self.elementArray.append("Ice") }
+            if monData.water { self.elementArray.append("Water") }
+            if monData.thunder { self.elementArray.append("Thunder") }
             
             //Get back to the main queue
             DispatchQueue.main.sync {
@@ -184,8 +210,6 @@ class DetailsViewController: UIViewController {
                     self.ailmentArray.append(item)
                 }
             }
-            print("Ailments: ", ailmentArray, "\nCount", ailmentArray.count)
-            
             //Get back to the main queue
             DispatchQueue.main.sync {
                 self.ailmentTableView.reloadData()
@@ -202,12 +226,9 @@ class DetailsViewController: UIViewController {
             for x in database.games_in {
                 self.gameArray.append(x.games)
             }
-            print(self.gameArray)
-            
             //Get back to the main queue
             DispatchQueue.main.async {
                 var list = ""
-                
                 self.gameArray.forEach { item in
                     if (item == self.gameArray[0]) {
                         list.append(item)
@@ -220,7 +241,32 @@ class DetailsViewController: UIViewController {
             }
             
         } catch let jsonError {print(jsonError)}
-    }// games_in
+    }/** games_in */
+    
+    func family(with data: Data){
+        do { let jsonData = try JSONDecoder().decode(Relatives.self, from: data)
+            for x in jsonData.relatives {
+                self.relativeArray.append(x.name)
+            }
+            //Get back to the main queue
+            DispatchQueue.main.async {
+                var list = ""
+                self.relativeArray.forEach { item in
+                    if (item == self.relativeArray[0]) {
+                        list.append(item)
+                    } else {
+                        let appended = "\n" + item
+                        list.append(appended)
+                    }
+                }
+                print(list)
+                if list.isEmpty {
+                    self.relatedView.isHidden = true
+                }
+                self.relatedTextView.text = list
+            }
+        } catch let jsonError {print(jsonError)}
+    }/** family */
  
 }
 
