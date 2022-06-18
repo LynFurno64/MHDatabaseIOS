@@ -26,16 +26,6 @@ class BookMarksViewController: UIViewController {
         }
         presentSortTable()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        saved.removeAll()
-        let marked = BookmarkData().readFile()
-        for x in marked {
-            if x != ""{
-                saved.append(Int(x)!)
-            }
-        }
-        presentSortTable()
-    }
     
     // MARK: - Navigation
     func presentSortTable(){

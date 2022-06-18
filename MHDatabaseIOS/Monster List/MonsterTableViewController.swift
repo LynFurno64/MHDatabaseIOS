@@ -12,12 +12,9 @@ class MonsterTableViewController: UITableViewController {
     
     private var monsterArray = [Monster]()
     private var loading = true
-    private var monsterCount = 75
     
     let dataPhylum = DataLoader().phylumData
-    let createBookMarkdata = BookmarkData().file()
-
-
+    let createBookMarkdata: () = BookmarkData().file()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,14 +81,6 @@ class MonsterTableViewController: UITableViewController {
             detailsVC.passedMonId = monstie.id
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
-
-        /*
-        let Vc = storyboard?.instantiateViewController(withIdentifier: "monsterDetails") as! DetailsViewController
-        
-        Vc.passedImage = UIImage.init(named: "\(imageName).png")
-        Vc.passedName = name
-        self.navigationController?.pushViewController(Vc, animated: true)
-        //performSegue(withIdentifier: "moveToDetails", sender: indexPath.row)*/
     }
     
     // Set table height to 80.0

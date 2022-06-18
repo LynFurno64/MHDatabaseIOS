@@ -10,9 +10,8 @@ import UIKit
 class TypesViewController: UIViewController {
     @IBOutlet weak var typeTableView: UITableView!
     @IBOutlet weak var typStackTView: UITableView!
+    //let subGroupList = ["Normal", "Subspecies", "Rare Subspecies", "Variants", "Deviants"]
     
-    
-    let subGroupList = ["Normal", "Subspecies", "Rare Subspecies", "Variants", "Deviants"]
     let categoryList = ["Neopteron", "Temnoceran", "Bird Wyvern", "Flying Wyvern", "Piscine Wyvern", "Carapaceon", "Amphibian", "Fanged Beast", "Leviathan", "Snake Wyvern", "Brute Wyvern", "Fanged Wyvern", "Elder Dragon","???"]
     
 
@@ -22,9 +21,7 @@ class TypesViewController: UIViewController {
         view.backgroundColor = .systemBackground
         typeTableView.delegate = self
         typeTableView.dataSource = self
-        
     }
-
 }
 
 extension TypesViewController: UITableViewDelegate {

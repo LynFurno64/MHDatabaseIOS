@@ -17,9 +17,7 @@ class SortTableViewController: UITableViewController {
     private var monsterArray = [Monster]()
     private var allMonsterArray = [Monster]()
 
-    
     private var loading = true
-    private var monsterCount = 100
     
     let dataPhylum = DataLoader().phylumData
 
@@ -56,7 +54,7 @@ class SortTableViewController: UITableViewController {
         default:
             break
         }
-    }
+    }/// searchType
 
     // MARK: - Networking
     func getAllMonster() {
@@ -66,9 +64,7 @@ class SortTableViewController: UITableViewController {
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             if let data = data {
                 guard let monsterJSONData = try? JSONDecoder().decode(MonstersList.self, from: data) else
-                {
-                    return /** Return if the monster count is out of range */
-                }
+                {return}/** Return if the monster count is out of range */
                 
                 for x in monsterJSONData.monsters {
                     self?.allMonsterArray.append(x)
@@ -80,7 +76,7 @@ class SortTableViewController: UITableViewController {
                 self?.sorttableView.reloadData()
             }
         }.resume()
-    }
+    }/// getAllMonster
     
     
     func getMonsterData(withQuery query: String) {
@@ -110,7 +106,7 @@ class SortTableViewController: UITableViewController {
             }
             
         }.resume()
-    }
+    }/// getMonsterData
     
     func monsterList(withQuery query: String) {
         print("monsterList2", query)
@@ -134,7 +130,7 @@ class SortTableViewController: UITableViewController {
         }
         self.loading = false
         self.sorttableView.reloadData()
-    }/// monsterList
+    }/// savedMonsterList
     
     // MARK: - Table view data source
     override func tableView(_ mytableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -105,19 +105,4 @@ class BookmarkData {
             }
             catch {print(error)}
     }
-    
-    func getContent(){
-        let fileUrl = folderURL().appendingPathComponent("saved.txt")
-        if manager.fileExists(atPath: fileUrl.path) {
-            //reading
-            do {
-                let text2 = try String(contentsOf: fileUrl, encoding: .utf8)
-                print("Files:",text2)
-            }
-            catch {print(error)}
-
-        }
-    }
-    
-    
 }
